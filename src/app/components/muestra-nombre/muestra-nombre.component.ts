@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-muestra-nombre',
@@ -8,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MuestraNombreComponent implements OnInit {
 
-  constructor() { }
+	@Input() nombre!: string;
 
-  ngOnInit(): void {
-  }
+	constructor() { }
+
+	ngOnChanges(changes: SimpleChanges): void {
+		console.log("ngOnChanges");
+		console.log(changes);
+	}
+
+	ngOnInit(): void {
+	}
 
 }
